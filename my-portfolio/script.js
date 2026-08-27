@@ -12,14 +12,14 @@ const projects = {
         cat: "2D QUIZ GAME · 2025",
         title: "TAMMY QUIZ RUSH: DESIGN THINKING",
         desc: "A 2D quiz game focused on Design Thinking.",
-        tools: "BLENDER · 3D MODELING"
+        tools: "2D · UNITY"
     },
 
     animation: {
         cat: "2D QUIZ GAME · 2026",
         title: "TAMMY QUIZ RUSH: SDG QUEST",
         desc: "A 2D quiz game focused on Sustainable Development Goals.",
-        tools: "BLENDER · UNITY"
+        tools: "2D · UNITY"
     }
 };
 
