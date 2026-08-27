@@ -1,25 +1,49 @@
+/* global BABYLON */
+
 const projects = {
     babylon: {
         cat: "GAME DEVELOPMENT · 2026",
-        title: "Phantom Echoes",
-        desc: "A third-person psychological thriller focused on exploration, memory fragments, puzzle solving, and unique boss encounters.",
-        tools: "UNITY · C# · BLENDER"
+        title: "Babylon: Fable That Flows Into the Infinite",
+        desc: "A 3D RPG exploring the consequences of war.",
+        tools: "UNITY · C# · MAYA"
     },
 
     modeling: {
-        cat: "3D ART · 2026",
-        title: "3D Modeling Projects",
-        desc: "A collection of 3D models, props, environments, and assets created for academic and personal projects.",
-        tools: "BLENDER · 3D MODELING"
+        cat: "2D QUIZ GAME · 2025",
+        title: "TAMMY QUIZ RUSH: DESIGN THINKING",
+        desc: "A 2D quiz game focused on Design Thinking.",
+        tools: "2D · UNITY"
     },
 
     animation: {
-        cat: "ANIMATION · 2025",
-        title: "Animation Projects",
-        desc: "Animation and interactive media work created throughout the Animation and Game Development course.",
-        tools: "BLENDER · UNITY"
+        cat: "2D QUIZ GAME · 2026",
+        title: "TAMMY QUIZ RUSH: SDG QUEST",
+        desc: "A 2D quiz game focused on Sustainable Development Goals.",
+        tools: "2D · UNITY"
     }
 };
+
+// Keep a small, session-only trail of meaningful portfolio interactions.
+const activityLog = document.querySelector("#activityLog");
+
+function addLog(message) {
+    if (!activityLog) return;
+
+    const entry = document.createElement("li");
+    const time = new Date().toLocaleTimeString([], {
+        hour: "2-digit",
+        minute: "2-digit"
+    });
+
+    entry.textContent = `${time}  ${message}`;
+    activityLog.prepend(entry);
+
+    while (activityLog.children.length > 4) {
+        activityLog.lastElementChild.remove();
+    }
+}
+
+addLog("Portfolio interface ready");
 
 
 // ==============================
@@ -31,11 +55,13 @@ const menuBtn = document.querySelector("#menuBtn");
 
 menuBtn.onclick = () => {
     nav.classList.toggle("open");
+    addLog(nav.classList.contains("open") ? "Navigation menu opened" : "Navigation menu closed");
 };
 
 document.querySelectorAll("nav a").forEach((link) => {
     link.onclick = () => {
         nav.classList.remove("open");
+        addLog(`Viewed ${link.textContent.toLowerCase()}`);
     };
 });
 
@@ -61,6 +87,7 @@ document.querySelectorAll(".open").forEach((button) => {
         document.querySelector("#mtools").textContent = project.tools;
 
         modal.classList.add("show");
+        addLog(`Opened project: ${project.title}`);
     };
 
 });
@@ -69,6 +96,7 @@ document.querySelectorAll(".open").forEach((button) => {
 // Close modal
 closeButton.onclick = () => {
     modal.classList.remove("show");
+    addLog("Project details closed");
 };
 
 
@@ -77,6 +105,7 @@ modal.onclick = (event) => {
 
     if (event.target === modal) {
         modal.classList.remove("show");
+        addLog("Project details closed");
     }
 
 };
@@ -87,6 +116,7 @@ document.onkeydown = (event) => {
 
     if (event.key === "Escape") {
         modal.classList.remove("show");
+        addLog("Project details closed");
     }
 
 };
@@ -98,26 +128,30 @@ document.onkeydown = (event) => {
 
 const contactForm = document.querySelector("#contactForm");
 
-contactForm.onsubmit = (event) => {
+if (contactForm) {
+    contactForm.onsubmit = (event) => {
 
-    event.preventDefault();
+        event.preventDefault();
 
-    const formData = new FormData(contactForm);
-    const data = Object.fromEntries(formData);
+        const formData = new FormData(contactForm);
+        const data = Object.fromEntries(formData);
 
-    const subject = encodeURIComponent(
-        `Portfolio inquiry from ${data.name}`
-    );
+        const subject = encodeURIComponent(
+            `Portfolio inquiry from ${data.name}`
+        );
 
-    const body = encodeURIComponent(
-        `Name: ${data.name}\n` +
-        `Email: ${data.email}\n\n` +
-        `${data.message}`
-    );
+        const body = encodeURIComponent(
+            `Name: ${data.name}\n` +
+            `Email: ${data.email}\n\n` +
+            `${data.message}`
+        );
 
-    window.location.href =
-        `mailto:vfdelarosa15@gmail.com?subject=${subject}&body=${body}`;
+        window.location.assign(
+            `mailto:vfdelarosa15@gmail.com?subject=${subject}&body=${body}`
+        );
 
-    document.querySelector("#status").textContent =
-        "OPENING YOUR EMAIL APP...";
-};
+        document.querySelector("#status").textContent =
+            "OPENING YOUR EMAIL APP...";
+        addLog("Contact message handed to email app");
+    };
+}
