@@ -26,7 +26,7 @@ const projects = {
         title: "TAMMY QUIZ RUSH: SDG QUEST",
         desc: "A 2D quiz game focused on Sustainable Development Goals.",
         tools: "2D · UNITY",
-        image: "/sdg-quest.jpg",
+        image: "/SDG.jpg",
         demo: "#",
         github: "https://github.com/JhayD02/Tammy-s-Quiz-Rush-SDG-Quest"
     }
