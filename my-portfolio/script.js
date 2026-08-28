@@ -5,21 +5,30 @@ const projects = {
         cat: "GAME DEVELOPMENT · 2026",
         title: "Babylon: Fable That Flows Into the Infinite",
         desc: "A 3D RPG exploring the consequences of war.",
-        tools: "UNITY · C# · MAYA"
+        tools: "UNITY · C# · MAYA",
+        image: "/babylon.jpg",
+        demo: "#",
+        github: "#"
     },
 
     modeling: {
         cat: "2D QUIZ GAME · 2025",
         title: "TAMMY QUIZ RUSH: DESIGN THINKING",
         desc: "A 2D quiz game focused on Design Thinking.",
-        tools: "2D · UNITY"
+        tools: "2D · UNITY",
+        image: "/design-thinking.jpg",
+        demo: "#",
+        github: "#"
     },
 
     animation: {
         cat: "2D QUIZ GAME · 2026",
         title: "TAMMY QUIZ RUSH: SDG QUEST",
         desc: "A 2D quiz game focused on Sustainable Development Goals.",
-        tools: "2D · UNITY"
+        tools: "2D · UNITY",
+        image: "/sdg-quest.jpg",
+        demo: "#",
+        github: "#"
     }
 };
 
@@ -72,6 +81,9 @@ document.querySelectorAll("nav a").forEach((link) => {
 
 const modal = document.querySelector("#modal");
 const closeButton = document.querySelector("#close");
+const projectImage = document.querySelector("#projectImage");
+const demoLink = document.querySelector("#demoLink");
+const githubLink = document.querySelector("#githubLink");
 
 document.querySelectorAll(".open").forEach((button) => {
 
@@ -85,6 +97,10 @@ document.querySelectorAll(".open").forEach((button) => {
         document.querySelector("#mtitle").textContent = project.title;
         document.querySelector("#mdesc").textContent = project.desc;
         document.querySelector("#mtools").textContent = project.tools;
+        projectImage.src = project.image;
+        projectImage.alt = `${project.title} project image`;
+        demoLink.href = project.demo;
+        githubLink.href = project.github;
 
         modal.classList.add("show");
         addLog(`Opened project: ${project.title}`);
