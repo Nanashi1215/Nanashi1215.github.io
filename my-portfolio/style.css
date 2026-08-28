@@ -190,6 +190,76 @@ h3 {
   right: 18%;
   top: 17%;
   background: var(--accent);
+  box-shadow: 8px 0 var(--accent), 0 8px var(--accent), 8px 8px var(--accent);
+}
+.mountain {
+  position: absolute;
+  bottom: 55px;
+  width: 0;
+  height: 0;
+  border-left: 130px solid transparent;
+  border-right: 130px solid transparent;
+  border-bottom: 150px solid #202020;
+}
+.mountain.a {
+  left: 5%;
+}
+.mountain.b {
+  right: -5%;
+  border-bottom-color: #191919;
+}
+.ground {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #181818;
+  border-top: 1px solid var(--line);
+}
+.person {
+  position: absolute;
+  left: 50%;
+  bottom: 56px;
+  width: 28px;
+  height: 72px;
+  transform: translateX(-50%);
+}
+.person i {
+  display: block;
+}
+.head {
+  width: 24px;
+  height: 24px;
+  margin: auto;
+  background: var(--text);
+}
+.body {
+  width: 20px;
+  height: 28px;
+  margin: auto;
+  background: var(--accent);
+}
+.leg {
+  position: absolute !important;
+  bottom: 0;
+  width: 8px;
+  height: 20px;
+  background: var(--text);
+}
+.leg.l {
+  left: 4px;
+}
+.leg.r {
+  right: 4px;
+}
+.sun {
+  position: absolute;
+  width: 52px;
+  height: 52px;
+  right: 18%;
+  top: 17%;
+  background: var(--accent);
   box-shadow:
     8px 0 var(--accent),
     0 8px var(--accent),
