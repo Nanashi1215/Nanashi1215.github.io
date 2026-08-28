@@ -452,16 +452,23 @@ footer {
   background: #000d;
   padding: 30px;
   place-items: center;
+  overflow: hidden;
 }
 .modal.show {
   display: grid;
 }
+.modal-open {
+  overflow: hidden;
+}
 .modalbox {
   position: relative;
   width: min(720px, 100%);
+  max-height: calc(100dvh - 60px);
   padding: 45px;
   background: var(--surface);
   border: 1px solid var(--line);
+  overflow-y: auto;
+  overscroll-behavior: contain;
 }
 #close {
   position: absolute;
@@ -483,13 +490,13 @@ footer {
   font-family: var(--pixel);
 }
 .placeholder {
-  height: 220px;
+  height: auto;
   width: 100%;
   margin: 25px 0;
   background: #101010;
   border: 1px dashed #333;
   display: block;
-  object-fit: cover;
+  object-fit: contain;
 }
 .modalbox a:hover {
   color: var(--accent);
@@ -543,5 +550,15 @@ footer {
   footer {
     flex-direction: column;
     gap: 10px;
+  }
+  .modal {
+    padding: 12px;
+  }
+  .modalbox {
+    max-height: calc(100dvh - 24px);
+    padding: 42px 22px 28px;
+  }
+  .placeholder {
+    max-height: none;
   }
 }

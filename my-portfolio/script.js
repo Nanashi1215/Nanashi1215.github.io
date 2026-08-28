@@ -6,7 +6,7 @@ const projects = {
         title: "Babylon: Fable That Flows Into the Infinite",
         desc: "A 3D RPG exploring the consequences of war.",
         tools: "UNITY · C# · MAYA",
-        image: "/babylon.jpg",
+        image: "./babylon.jpg",
         demo: "#",
         github: "#"
     },
@@ -16,7 +16,7 @@ const projects = {
         title: "TAMMY QUIZ RUSH: DESIGN THINKING",
         desc: "A 2D quiz game focused on Design Thinking.",
         tools: "2D · UNITY",
-        image: "/design-thinking.jpg",
+        image: "./design-thinking.jpg",
         demo: "#",
         github: "#"
     },
@@ -26,7 +26,7 @@ const projects = {
         title: "TAMMY QUIZ RUSH: SDG QUEST",
         desc: "A 2D quiz game focused on Sustainable Development Goals.",
         tools: "2D · UNITY",
-        image: "/SDG.gif",
+        image: "./SDG.gif",
         demo: "#",
         github: "https://github.com/JhayD02/Tammy-s-Quiz-Rush-SDG-Quest"
     }
@@ -60,6 +60,11 @@ const projectImage = document.querySelector("#projectImage");
 const demoLink = document.querySelector("#demoLink");
 const githubLink = document.querySelector("#githubLink");
 
+const closeModal = () => {
+    modal.classList.remove("show");
+    document.body.classList.remove("modal-open");
+};
+
 document.querySelectorAll(".open").forEach((button) => {
 
     button.onclick = () => {
@@ -81,6 +86,8 @@ document.querySelectorAll(".open").forEach((button) => {
         githubLink.href = project.github;
 
         modal.classList.add("show");
+        document.body.classList.add("modal-open");
+        modal.querySelector(".modalbox").scrollTop = 0;
     };
 
 });
@@ -88,7 +95,7 @@ document.querySelectorAll(".open").forEach((button) => {
 
 // Close modal
 closeButton.onclick = () => {
-    modal.classList.remove("show");
+    closeModal();
 };
 
 
@@ -96,7 +103,7 @@ closeButton.onclick = () => {
 modal.onclick = (event) => {
 
     if (event.target === modal) {
-        modal.classList.remove("show");
+        closeModal();
     }
 
 };
@@ -105,8 +112,8 @@ modal.onclick = (event) => {
 // Close modal with ESC
 document.onkeydown = (event) => {
 
-    if (event.key === "Escape") {
-        modal.classList.remove("show");
+    if (event.key === "Escape" && modal.classList.contains("show")) {
+        closeModal();
     }
 
 };
