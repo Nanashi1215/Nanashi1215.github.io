@@ -11,7 +11,7 @@ const projects = {
         github: "#"
     },
 
-    modeling: {
+    DesignThinking: {
         cat: "2D QUIZ GAME · 2025",
         title: "TAMMY QUIZ RUSH: DESIGN THINKING",
         desc: "A 2D quiz game focused on Design Thinking.",
@@ -21,14 +21,14 @@ const projects = {
         github: "#"
     },
 
-    animation: {
+    SDG: {
         cat: "2D QUIZ GAME · 2026",
         title: "TAMMY QUIZ RUSH: SDG QUEST",
         desc: "A 2D quiz game focused on Sustainable Development Goals.",
         tools: "2D · UNITY",
         image: "/sdg-quest.jpg",
         demo: "#",
-        github: "#"
+        github: "https://github.com/JhayD02/Tammy-s-Quiz-Rush-SDG-Quest"
     }
 };
 
