@@ -15,7 +15,7 @@
                 VIC JAYSON F. DELA ROSA
                 <span>.</span>
             </a>
-            <button id="menuBtn">☰</button>
+            <button id="menuBtn" type="button">☰</button>
             <nav id="nav">
                 <a href="#work">WORK</a>
                 <a href="#experience">EXPERIENCE</a>
@@ -62,7 +62,7 @@
                             <p>A 3D RPG Exploring Consiquences of War</p>
                             <em>Unity · C# · Maya</em>
                         </div>
-                        <button class="open" data-id="Babylon">↗</button>
+                        <button class="open" data-id="Babylon" type="button">↗</button>
                     </article>
                     <article>
                         <small>02</small>
@@ -71,7 +71,7 @@
                             <p>A 2D Quiz game for Design Thinking Subjects</p>
                             <em>Unity · C#</em>
                         </div>
-                        <button class="open" data-id="modeling">↗</button>
+                        <button class="open" data-id="modeling" type="button">↗</button>
                     </article>
                     <article>
                         <small>03</small>
@@ -80,7 +80,7 @@
                             <p>An 2D Quiz game about Sustainable development goals</p>
                             <em>C# · Unity</em>
                         </div>
-                        <button class="open" data-id="animation">↗</button>
+                        <button class="open" data-id="animation" type="button">↗</button>
                     </article>
                 </div>
             </section>
@@ -171,9 +171,9 @@
             <span>BUILT WITH HTML/CSS<b>■</b></span>
         </footer>
 
-        <div class="modal" id="modal">
-            <div class="modalbox">
-                <button id="close">×</button>
+        <div class="modal" id="modal" aria-hidden="true">
+            <div class="modalbox" role="dialog" aria-modal="true" aria-labelledby="mtitle">
+                <button id="close" type="button" aria-label="Close project details">×</button>
                 <p class="eyebrow" id="mcat"></p>
                 <h2 id="mtitle"></h2>
                 <p id="mdesc"></p>
