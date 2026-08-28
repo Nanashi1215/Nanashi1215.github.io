@@ -1,41 +1,7 @@
-.system-log {
-  width: min(420px, 100%);
-  margin-top: 24px;
-  border: 1px solid var(--line);
-  padding: 14px 16px;
-  background: var(--surface);
-}
 footer > div:first-child {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.log-heading {
-  display: flex;
-  justify-content: space-between;
-  color: var(--muted);
-  font: 11px var(--pixel);
-  letter-spacing: 0.1em;
-}
-.log-live {
-  color: var(--accent);
-}
-#activityLog {
-  display: grid;
-  gap: 6px;
-  margin: 12px 0 0;
-  padding: 0;
-  list-style: none;
-  color: var(--muted);
-  font: 11px var(--pixel);
-}
-#activityLog li {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-#activityLog li:first-child {
-  color: var(--text);
 }
 :root {
   --bg: #0d0d0d;

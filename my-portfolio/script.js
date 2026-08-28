@@ -32,29 +32,6 @@ const projects = {
     }
 };
 
-// Keep a small, session-only trail of meaningful portfolio interactions.
-const activityLog = document.querySelector("#activityLog");
-
-function addLog(message) {
-    if (!activityLog) return;
-
-    const entry = document.createElement("li");
-    const time = new Date().toLocaleTimeString([], {
-        hour: "2-digit",
-        minute: "2-digit"
-    });
-
-    entry.textContent = `${time}  ${message}`;
-    activityLog.prepend(entry);
-
-    while (activityLog.children.length > 4) {
-        activityLog.lastElementChild.remove();
-    }
-}
-
-addLog("Portfolio interface ready");
-
-
 // ==============================
 // MOBILE NAVIGATION
 // ==============================
@@ -64,13 +41,11 @@ const menuBtn = document.querySelector("#menuBtn");
 
 menuBtn.onclick = () => {
     nav.classList.toggle("open");
-    addLog(nav.classList.contains("open") ? "Navigation menu opened" : "Navigation menu closed");
 };
 
 document.querySelectorAll("nav a").forEach((link) => {
     link.onclick = () => {
         nav.classList.remove("open");
-        addLog(`Viewed ${link.textContent.toLowerCase()}`);
     };
 });
 
@@ -91,7 +66,10 @@ document.querySelectorAll(".open").forEach((button) => {
 
         const project = projects[button.dataset.id];
 
-        if (!project) return;
+        if (!project) {
+            console.error(`Project not found: ${button.dataset.id}`);
+            return;
+        }
 
         document.querySelector("#mcat").textContent = project.cat;
         document.querySelector("#mtitle").textContent = project.title;
@@ -103,7 +81,6 @@ document.querySelectorAll(".open").forEach((button) => {
         githubLink.href = project.github;
 
         modal.classList.add("show");
-        addLog(`Opened project: ${project.title}`);
     };
 
 });
@@ -112,7 +89,6 @@ document.querySelectorAll(".open").forEach((button) => {
 // Close modal
 closeButton.onclick = () => {
     modal.classList.remove("show");
-    addLog("Project details closed");
 };
 
 
@@ -121,7 +97,6 @@ modal.onclick = (event) => {
 
     if (event.target === modal) {
         modal.classList.remove("show");
-        addLog("Project details closed");
     }
 
 };
@@ -132,7 +107,6 @@ document.onkeydown = (event) => {
 
     if (event.key === "Escape") {
         modal.classList.remove("show");
-        addLog("Project details closed");
     }
 
 };
@@ -168,6 +142,5 @@ if (contactForm) {
 
         document.querySelector("#status").textContent =
             "OPENING YOUR EMAIL APP...";
-        addLog("Contact message handed to email app");
     };
 }
