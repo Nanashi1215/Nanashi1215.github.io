@@ -1,4 +1,6 @@
 import sdgGif from "./SDG.gif";
+import babylonImage from "./Babylon.png";
+import designThinkingImage from "./Designthinking.gif";
 
 const projects = {
     babylon: {
@@ -6,7 +8,7 @@ const projects = {
         title: "Babylon: Fable That Flows Into the Infinite",
         desc: "A 3D RPG exploring the consequences of war.",
         tools: "UNITY · C# · MAYA",
-        image: "/babylon.jpg",
+        image: babylonImage,
         demo: "#",
         github: "#"
     },
@@ -16,7 +18,7 @@ const projects = {
         title: "TAMMY QUIZ RUSH: DESIGN THINKING",
         desc: "A 2D quiz game focused on Design Thinking.",
         tools: "2D · UNITY",
-        image: "/design-thinking.jpg",
+        image: designThinkingImage,
         demo: "#",
         github: "#"
     },
