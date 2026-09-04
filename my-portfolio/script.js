@@ -1,4 +1,4 @@
-/* global BABYLON */
+import sdgGif from "./SDG.gif";
 
 const projects = {
     babylon: {
@@ -26,7 +26,7 @@ const projects = {
         title: "TAMMY QUIZ RUSH: SDG QUEST",
         desc: "A 2D quiz game focused on Sustainable Development Goals.",
         tools: "2D · UNITY",
-        image: "./SDG.gif",
+        image: sdgGif,
         demo: "#",
         github: "https://github.com/JhayD02/Tammy-s-Quiz-Rush-SDG-Quest"
     }
@@ -59,6 +59,10 @@ const closeButton = document.querySelector("#close");
 const projectImage = document.querySelector("#projectImage");
 const demoLink = document.querySelector("#demoLink");
 const githubLink = document.querySelector("#githubLink");
+
+projectImage.onerror = () => {
+    projectImage.src = sdgGif;
+};
 
 document.querySelectorAll(".open").forEach((button) => {
 
@@ -106,8 +110,7 @@ modal.onclick = (event) => {
 document.onkeydown = (event) => {
 
     if (event.key === "Escape") {
-        modal.classList.remove("show");
-    }
+        modal.classList.remove("show")    }
 
 };
 
