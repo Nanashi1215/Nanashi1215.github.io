@@ -1,6 +1,6 @@
 import sdgGif from "./SDG.gif";
 import babylonImage from "./Babylon.png";
-import designThinkingImage from "./Designthinking.gif";
+import designThinkingImage from "./DesignThinking.gif";
 
 const projects = {
     babylon: {
